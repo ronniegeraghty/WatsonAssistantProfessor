@@ -34,3 +34,23 @@ body{
     grid-row: 2/6;
     background-color: blue;
 }
+
+.navBar a:link {
+    text-decoration: none;
+}
+.navBar a:visited {
+    text-decoration: none;
+}
+.navBar a:hover {
+    text-decoration: none;
+}
+.navBar a:active {
+    text-decoration: none;
+}
+.navBar{
+    font-family: 'CheeseFont', Fallback, snas-serif;
+    font-weight: bold;
+    font-size: 10px;
+    font-size: 3vw;
+    text-align: center;
+}
