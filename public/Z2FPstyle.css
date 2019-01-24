@@ -4,7 +4,7 @@ body{
 .gridWrap {
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: 1fr 4fr;
     padding: 0px;
     border: 0px;
     width: 100vw;
@@ -18,39 +18,45 @@ body{
 
 .banner {
     grid-column: 1/5;
-    grid-row: 1/4;
+    grid-row: 1/2;
     background-image: url("Images/cheeseBackground.jpg");
+    display: grid;
+    grid-gap: 10px;
+    grid-template-rows: 2fr 1fr;
 }
 
 .banner header {
+    grid-column: 1/4;
+    grid-row: 1/2;
     font-family: 'CheeseFont', Fallback, snas-serif;
-    font-size: 35px;
-    font-size: 10vw;
+
     text-align: center;
 }
-
-.main {
-    grid-column: 1/5;
-    grid-row: 2/6;
-    background-color: blue;
-}
-
-.navBar a:link {
-    text-decoration: none;
-}
-.navBar a:visited {
-    text-decoration: none;
-}
-.navBar a:hover {
-    text-decoration: none;
-}
-.navBar a:active {
-    text-decoration: none;
-}
 .navBar{
+    grid-row: 2/3;
+    grid-column: 1/4;
     font-family: 'CheeseFont', Fallback, snas-serif;
     font-weight: bold;
     font-size: 10px;
     font-size: 3vw;
     text-align: center;
 }
+.navBar a:link, a:visited, a:active{
+    text-decoration: none;
+    color: black;
+}
+.navBar a:hover {
+    text-decoration: none;
+    color: blue;
+    border:2px solid blue;
+}
+
+.navBar > a {
+    border: 2px solid black;
+}
+.main {
+    grid-column: 1/5;
+    grid-row: 2/3;
+    background-color: #fce28d;
+}
+
