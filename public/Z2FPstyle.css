@@ -1,10 +1,11 @@
 body{
     margin: auto;
+    background-color: #fce28d;
 }
 .gridWrap {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
     grid-template-rows: 1fr 4fr;
+    grid-template-columns: 1fr;
     padding: 0px;
     border: 0px;
     width: 100vw;
@@ -21,25 +22,27 @@ body{
     grid-row: 1/2;
     background-image: url("Images/cheeseBackground.jpg");
     display: grid;
-    grid-gap: 10px;
     grid-template-rows: 2fr 1fr;
+    grid-template-columns: 1fr;
 }
 
-.banner header {
-    grid-column: 1/4;
+.title {
     grid-row: 1/2;
     font-family: 'CheeseFont', Fallback, snas-serif;
-
+    font-size: 10vh;
     text-align: center;
 }
-.navBar{
+.navBar {
     grid-row: 2/3;
-    grid-column: 1/4;
     font-family: 'CheeseFont', Fallback, snas-serif;
     font-weight: bold;
-    font-size: 10px;
-    font-size: 3vw;
     text-align: center;
+    font-size: 2.5vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+
 }
 .navBar a:link, a:visited, a:active{
     text-decoration: none;
@@ -48,15 +51,24 @@ body{
 .navBar a:hover {
     text-decoration: none;
     color: blue;
-    border:2px solid blue;
-}
-
-.navBar > a {
-    border: 2px solid black;
 }
 .main {
-    grid-column: 1/5;
+    grid-column: 1/2;
     grid-row: 2/3;
-    background-color: #fce28d;
 }
-
+.teamGallery {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+}
+.photo {
+    margin: auto;
+    margin-bottom: 20px;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2em;
+    border: 2px solid black;
+}
