@@ -1,0 +1,36 @@
+body{
+    margin: auto;
+}
+.gridWrap {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(5, 1fr);
+    padding: 0px;
+    border: 0px;
+    width: 100vw;
+    height: 100vh;
+}
+
+@font-face {
+    font-family: 'CheeseFont';
+    src: url('Styles/Fonts/JI\ Swiss\ Cheese.ttf') format('truetype');
+}
+
+.banner {
+    grid-column: 1/5;
+    grid-row: 1/4;
+    background-image: url("Images/cheeseBackground.jpg");
+}
+
+.banner header {
+    font-family: 'CheeseFont', Fallback, snas-serif;
+    font-size: 35px;
+    font-size: 10vw;
+    text-align: center;
+}
+
+.main {
+    grid-column: 1/5;
+    grid-row: 2/6;
+    background-color: blue;
+}
