@@ -109,7 +109,7 @@ nav a:hover,
 .toggle .navBtn {
   -webkit-transform: rotate(224deg);
   color: var(--thirdColor);
-  left: 10px;
+  left: 50px;
   width: 40px;
 }
 
