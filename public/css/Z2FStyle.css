@@ -74,7 +74,7 @@ nav a {
   opacity: 0.5;
   width: 100%;
   transition: .3s ease;
-  font-size: 1em;
+  font-size: 130%;
   text-transform: uppercase;
   font-weight: bold;
   line-height: 1.85em;
@@ -90,7 +90,7 @@ nav a:hover,
 }
 
 .navBtn {
-  font-size: 2em;
+  font-size: 4em;
   font-weight: 700;
   margin: 30px 0 0;
   width: 100%;
