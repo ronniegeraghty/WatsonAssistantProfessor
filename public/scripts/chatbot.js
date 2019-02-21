@@ -43,8 +43,8 @@ function startConversation() {
 
 }
 
-function sendMessage(message){
-    console.log('MESSAGE TO SEND: '+message);
+function sendMessage(message) {
+    console.log('MESSAGE TO SEND: ' + message);
     service.message({
         assistant_id: assistantId,
         session_id: sessionId,
@@ -55,9 +55,14 @@ function sendMessage(message){
     }, function (err, response) {
         if (err) {
             console.log('error:', err);
-        }else {
+        } else {
+            /*obj = JSON.parse(response);
+            genericLength = Object.keys(obj.output.generic[0]).length;
+            console.log(genericLength);*/
             console.log(JSON.stringify(response, null, 2));
-            console.log('CHATBOT OUTPUT: '+JSON.stringify(response.output.generic[0].text, null, 2));
+            /* for (var l = 0; l < response.output.generic.length(); l++) {
+                console.log('CHATBOT OUTPUT: ' + JSON.stringify(response.output.generic[l].text, null, 2));
+            } */
         }
     });
 }
