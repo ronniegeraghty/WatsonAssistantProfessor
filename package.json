@@ -32,6 +32,8 @@
     "log4js": "^3.0.5",
     "mousetrap": "^1.6.2",
     "prompt-sync": "^4.1.6",
+    "require": "^2.4.20",
+    "required": "^1.0.0",
     "talkjs": "^0.7.0",
     "watson-developer-cloud": "^3.18.1"
   },
