@@ -1,0 +1,33 @@
+.chatBoxHidden {
+    background-color: white;
+    color: black;
+    position: fixed;
+    top: 30%;
+    left: 150%;
+    bottom: 16%;
+    right: 5%;
+    border-radius: 0.5rem;
+}
+
+.chatBox {
+    background-color: white;
+    color: black;
+    position: fixed;
+    top: 30%;
+    left: 60%;
+    bottom: 16%;
+    right: 5%;
+    border-radius: 0.5rem;
+}
+
+.chatBtn {
+    background-color: #990000;
+    border-radius: 1.5625rem;
+    width: 4em;
+    height: 4em;
+    position: fixed;
+    top: 85%;
+    left: 85%;
+    padding: 0.1%;
+    cursor: pointer;
+}
