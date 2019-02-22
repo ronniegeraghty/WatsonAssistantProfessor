@@ -65,20 +65,24 @@
 }
 
 .message {
-    border-radius: 0.5rem;
-    padding: 2%;
     color: white;
-    margin-top: 2.5%;
-    margin-bottom: 2.5%;
+    width: 100%;
+    min-height: 3.5em;
+    height: auto;
     display: block;
+    word-wrap: break-word;
 }
 
 .fromUser {
     float: right;
     background-color: #990000;
-    margin-right: 2%;
+    margin-right: 5%;
     margin-left: auto;
     max-width: 60%;
+    border-radius: 0.5rem;
+    padding: 2%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
 }
 
 .fromWatson {
@@ -86,4 +90,8 @@
     background-color: #011F5B;
     margin-left: 2%;
     margin-right: 20%;
+    border-radius: 0.5rem;
+    padding: 2%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
 }

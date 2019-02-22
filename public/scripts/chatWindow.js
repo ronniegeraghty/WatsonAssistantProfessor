@@ -9,21 +9,46 @@ $(document).ready(function () {
         toggleChatBox();
     });
 
-    var sendMessage = function () {
-        console.log("IN SEND MESSAGE FUNCTION--------------");
-        var newMessage = document.createElement('div');
-        newMessage.textContent = document.getElementById('inputMessage').value;
-        document.getElementById('inputMessage').value='';
-        newMessage.className = 'message fromUser';
-        document.getElementsByClassName('chatMessages')[0].appendChild(newMessage);
+    var autoScroll = function () {
         $('.chatMessages').animate({
             scrollTop: $('.chatMessages').get(0).scrollHeight
         }, 100);
     }
 
+    var sendMessage = function () {
+        console.log("IN SEND MESSAGE FUNCTION--------------");
+        var newMessage = document.createElement('div');
+        var userMessage = document.createElement('div');
+        userMessage.textContent = document.getElementById('inputMessage').value;
+        document.getElementById('inputMessage').value='';
+        newMessage.className = 'message';
+        userMessage.className = 'fromUser';
+        newMessage.appendChild(userMessage);
+        document.getElementsByClassName('chatMessages')[0].appendChild(newMessage);
+        autoScroll();
+    }
+
     $('#submitBtn').click(function () {
         sendMessage();
     });
+    $('#inputMessage').on('keypress', function(e) {
+        if(e.keyCode == 13) {
+            sendMessage();
+        }
+    });
+
+
+    var displayWatsonMessage = function(message) {
+        console.log("DISPLAYING WATSON MESSAGE---------------");
+        var newMessage = document.createElement('div');
+        var watsonMessage = document.createElement('div');
+        watsonMessage.textContent = message;
+        newMessage.className = 'message';
+        watsonMessage.className = 'fromWatson';
+        newMessage.appendChild(watsonMessage);
+        document.getElementsByClassName('chatMessages')[0].appendChild(newMessage);
+        autoScroll();
+    }
 
 });
 
