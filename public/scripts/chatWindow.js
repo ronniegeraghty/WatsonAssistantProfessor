@@ -9,6 +9,21 @@ $(document).ready(function () {
         toggleChatBox();
     });
 
+    var sendMessage = function () {
+        console.log("IN SEND MESSAGE FUNCTION--------------");
+        var newMessage = document.createElement('div');
+        newMessage.textContent = document.getElementById('inputMessage').value;
+        document.getElementById('inputMessage').value='';
+        newMessage.className = 'message fromUser';
+        document.getElementsByClassName('chatMessages')[0].appendChild(newMessage);
+        $('.chatMessages').animate({
+            scrollTop: $('.chatMessages').get(0).scrollHeight
+        }, 100);
+    }
+
+    $('#submitBtn').click(function () {
+        sendMessage();
+    });
 
 });
 

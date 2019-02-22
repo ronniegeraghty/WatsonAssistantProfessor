@@ -5,12 +5,11 @@
   <meta charset="utf-8">
   <title>Z2F Yellow Team</title>
   <link rel="shortcut icon" href="Images/cheese.png" />
-  <link rel='stylesheet' href='css/Z2FStyle.css' />
+  <link rel='stylesheet' href='css/Z2FStyleIndex.css' />
   <link rel='stylesheet' href='css/chatbotStyle.css' />
-  <link rel='stylesheet' href='css/app.css' />
 </head>
 
-<body>
+<body background='Images/UPennWebBG.png'>
   <div class="container">
     <div class="overlay"></div>
     <header>
@@ -21,17 +20,20 @@
     <div class="main">
       <article>
         <h3>Z2F Project</h3>
-        <p>Ut nisi deserunt ullamco non voluptate aute et pariatur cupidatat minim mollit. Excepteur in quis in fugiat
-          nulla consectetur ea esse sunt. Veniam in incididunt qui quis non do aliquip laborum. Ut reprehenderit veniam
-          laboris aute dolore officia.</p>
 
       </article>
     </div>
-    <div class='chatBoxHidden'>
-
+    <div class='chatBox'>
+      <!-- Need to change this back to chatBoxHidden -->
+      <div class='chatMessages'>
+      </div>
+      <div class='chatInput'>
+        <input type='text' id='inputMessage' name='name' placeholder="Type your message.">
+        <input type="submit" id="submitBtn" value="Send Message">
+      </div>
     </div>
     <div class="chatBtn">
-      <img src='Images/Chat Button.png'/>
+      <img src='Images/Chat Button.png' />
     </div>
   </div>
   <script src="scripts/Libraries/jquery1.11.1jquerymin.js"></script>
