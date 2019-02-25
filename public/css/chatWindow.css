@@ -1,0 +1,71 @@
+@-webkit-keyframes flyIn {
+    0%   {left: 100%;}
+    75%  {left: 65%;}
+    100% {-webkit-transform: rotate(720deg);}
+}
+@keyframes flyIn {
+    0%   {left: 120%;}
+    80%  {left: 62%;}
+    90%  {left: 66.5%;}
+    100% {left: 65%;}
+}
+
+
+
+.chatBtn {
+    position: absolute;
+    background-color: #990000;
+    border-radius: 5rem;
+    height: 75px;
+    width: 75px;
+    top: 87%;
+    left: 90%;
+    cursor: pointer;
+}
+
+.chatBtnImg {
+    height: 75px;
+    width: 75px;
+}
+
+  .chat-column-hidden {
+    position: absolute;
+    opacity: 1;
+    height: 50%;
+    width: 30%;
+    right: 5%;
+    left: 100%;
+    top: 35%;
+    background-color: white;
+    border: 2px solid grey;
+    border-radius: 0.5rem;
+    padding: 0.9375rem 0 0.625rem 0;
+    margin: auto;
+    text-align: left;
+    max-width: 25rem;
+    min-width: 9.375rem;
+    transition: .3s ease-out;
+  }
+
+  .chat-column {
+    position: absolute;
+    opacity: 1;
+    height: 50%;
+    width: 30%;
+    right: 5%;
+    left: 65%;
+    top: 35%;
+    background-color: white;
+    border: 2px solid grey;
+    border-radius: 0.5rem;
+    padding: 0.9375rem 0 0.625rem 0;
+    margin: auto;
+    text-align: left;
+    max-width: 25rem;
+    min-width: 9.375rem;
+    -webkit-animation-name: flyIn; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: .75s; /* Safari 4.0 - 8.0 */
+    animation-name: flyIn;
+    animation-duration: .75s;
+
+  }
