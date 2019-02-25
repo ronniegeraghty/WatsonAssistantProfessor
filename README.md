@@ -1,99 +1,158 @@
-## Z2FProjectYellow
+<h1 align="center" style="border-bottom: none;">🚀 Watson Assistant (formerly Conversation) Sample Application</h1>
+<h3 align="center">This Node.js app demonstrates the Watson Assistant service in a simple interface engaging in a series of simple simulated banking tasks.</h3>
+<p align="center">
+  <a href="http://travis-ci.org/watson-developer-cloud/assistant-simple">
+    <img alt="Travis" src="https://travis-ci.org/watson-developer-cloud/assistant-simple.svg?branch=master">
+  </a>
+  <a href="#badge">
+    <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
+  </a>
+</p>
+</p>
 
-Basic Web project with ExpressJS on NodeJS
+![Demo](readme_images/demo.gif)
 
-[![](https://img.shields.io/badge/IBM%20Cloud-powered-blue.svg)](https://bluemix.net)
-![Platform](https://img.shields.io/badge/platform-NODE-lightgrey.svg?style=flat)
+You can view a [demo][demo_url] of this app.
 
-### Table of Contents
-* [Summary](#summary)
-* [Requirements](#requirements)
-* [Configuration](#configuration)
-* [Run](#run)
-* [Debug](#debug)
+Please note this app uses the [Watson Assistant V2 API](https://cloud.ibm.com/apidocs/assistant-v2#introduction). To access a version of the V1 app, you can go to [v1.4.1](https://github.com/watson-developer-cloud/assistant-simple/releases/tag/v1.4.1).
 
-<a name="summary"></a>
-### Summary
-The Web basic starter contains an opinionated set of files for web serving:
-
-- `public/index.html`
-- `public/404.html`
-- `public/500.html`
+If you need more information about the V1 API, you can go to the [Watson Assistant V1 API page](https://cloud.ibm.com/apidocs/assistant#introduction).
 
 
+## Prerequisites
 
-<a name="enablement"></a>
-### IBM Cloud Enablement
+1. Sign up for an [IBM Cloud account](https://cloud.ibm.com/registration/).
+1. Download the [IBM Cloud CLI](https://cloud.ibm.com/docs/cli/index.html#overview).
+1. Create an instance of the Watson Assistant service and get your credentials:
+    - Go to the [Watson Assistant](https://cloud.ibm.com/catalog/services/conversation) page in the IBM Cloud Catalog.
+    - Log in to your IBM Cloud account.
+    - Click **Create**.
+    - Click **Show** to view the service credentials.
+    - Copy the `apikey` value, or copy the `username` and `password` values if your service instance doesn't provide an `apikey`.
+    - Copy the `url` value.
 
-<a name="requirements"></a>
-### Requirements
-#### Local Development Tools Setup (optional)
+## Configuring the application
 
-- Install the latest [NodeJS](https://nodejs.org/en/download/) 6+ LTS version.
+1. In your IBM Cloud console, open the Watson Assistant service instance
 
-#### IBM Cloud development tools setup (optional)
+2. Click the **Import workspace** icon in the Watson Assistant service tool. Specify the location of the workspace JSON file in your local copy of the app project:
 
-1. Install [IBM Cloud Developer Tools](https://console.bluemix.net/docs/cli/idt/setting_up_idt.html#add-cli) on your machine  
-2. Install the plugin with: `bx plugin install dev -r bluemix`
+    `<project_root>/training/bank_simple_workspace.json`
+
+3. Select **Everything (Intents, Entities, and Dialog)** and then click **Import**. The car dashboard workspace is created.
+
+4. Click the menu icon in the upper-right corner of the workspace tile, and then select **View details**.
+
+5. Click the ![Copy](readme_images/copy_icon.png) icon to copy the workspace ID to the clipboard.
+
+    ![Steps to get credentials](readme_images/assistant-simple.gif)
+
+6. In the application folder, copy the *.env.example* file and create a file called *.env*
+
+    ```
+    cp .env.example .env
+    ```
+
+7. Open the *.env* file and add the service credentials that you obtained in the previous step. The Watson SDK automaticaly locates the correct enviromental variables for either `username`, `password`, and `url` or the `apikey` and `url` credentials found in the *.env* file.
+
+    Example *.env* file that configures the `apikey` and `url` for a Watson Assistant service instance hosted in the US East region:
+
+    ```
+    ASSISTANT_IAM_APIKEY=X4rbi8vwZmKpXfowaS3GAsA7vdy17Qh7km5D6EzKLHL2
+    ASSISTANT_URL=https://gateway-wdc.watsonplatform.net/assistant/api
+    ```
+
+    - If your service instance uses `username` and `password` credentials, add the `ASSISTANT_USERNAME` and `ASSISTANT_PASSWORD` variables to the *.env* file.
+
+    Example *.env* file that configures the `username`, `password`, and `url` for a Watson Assistant service instance hosted in the US South region:
+
+    ```
+    ASSISTANT_USERNAME=522be-7b41-ab44-dec3-g1eab2ha73c6
+    ASSISTANT_PASSWORD=A4Z5BdGENrwu8
+    ASSISTANT_URL=https://gateway.watsonplatform.net/assistant/api
+    ```
+    However, if your credentials contain an IAM API key, copy the `apikey` and `url` to the relevant fields.
+    ```JSON
+      {
+        "apikey": "ca2905e6-7b5d-4408-9192-e4d54d83e604",
+        "iam_apikey_description": "Auto generated apikey during resource-key ...",
+        "iam_apikey_name": "auto-generated-apikey-62b71334-3ae3-4609-be26-846fa59ece42",
+        "iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Manager",
+        "iam_serviceid_crn": "crn:v1:bluemix:public:iam...",
+        "url": "https://gateway-syd.watsonplatform.net/assistant/api"
+      }
+    ```
+    ```
+    ASSISTANT_IAM_APIKEY=ca2905e6-7b5d-4408-9192-e4d54d83e604
+    ```
+
+8. Add the `ASSISTANT_ID` to the previous properties
+
+    ```
+    ASSISTANT_ID=522be-7b41-ab44-dec3-g1eab2ha73c6
+    ```
+
+## Running locally
+
+1. Install the dependencies
+
+    ```
+    npm install
+    ```
+
+1. Run the application
+
+    ```
+    npm start
+    ```
+
+1. View the application in a browser at `localhost:3000`
+
+## Deploying to IBM Cloud as a Cloud Foundry Application
+
+1. Login to IBM Cloud with the [IBM Cloud CLI](https://cloud.ibm.com/docs/cli/index.html#overview)
+
+    ```
+    ibmcloud login
+    ```
+
+1. Target a Cloud Foundry organization and space.
+
+    ```
+    ibmcloud target --cf
+    ```
+
+1. Edit the *manifest.yml* file. Change the **name** field to something unique.  
+  For example, `- name: my-app-name`.
+1. Deploy the application
+
+    ```
+    ibmcloud app push
+    ```
+
+1. View the application online at the app URL.  
+For example: https://my-app-name.mybluemix.net
 
 
-#### IBM Cloud DevOps setup (optional)
+## License
 
-[![Create Toolchain](https://console.ng.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.ng.bluemix.net/devops/setup/deploy/)
+This sample code is licensed under Apache 2.0.  
+Full license text is available in [LICENSE](LICENSE).
 
-[IBM Cloud DevOps](https://www.ibm.com/cloud-computing/bluemix/devops) services provides toolchains as a set of tool integrations that support development, deployment, and operations tasks inside IBM Cloud. The "Create Toolchain" button creates a DevOps toolchain and acts as a single-click deploy to IBM Cloud including provisioning all required services. 
+## Contributing
 
-***Note** you must publish your project to [Github](https://github.com/) for this to work.
+See [CONTRIBUTING](CONTRIBUTING.md).
 
+## Open Source @ IBM
 
-
-<a name="configuration"></a>
-### Configuration
-
-The project contains IBM Cloud specific files that are used to deploy the application as part of an IBM Cloud DevOps flow. The `.bluemix` directory contains files used to define the IBM Cloud toolchain and pipeline for your application. The `manifest.yml` file specifies the name of your application in IBM Cloud, the timeout value during deployment, and which services to bind to.
-
-Service credentials are taken from the VCAP_SERVICES environment variable if running IBM Cloud Cloud Foundry, from individual environment variables per service if running on IBM Cloud Container Service (see ./server/config/mappings.json), or from a config file if running locally, named`./server/config/localdev-config.js`.
+Find more open source projects on the
+[IBM Github Page](http://ibm.github.io/).
 
 
-<a name="run"></a>
-### Run
-#### Using IBM Cloud development CLI
-The IBM Cloud development plugin makes it easy to compile and run your application if you do not have all of the tools installed on your computer yet. Your application will be compiled with Docker containers. To compile and run your app, run:
-
-```bash
-bx dev build
-bx dev run
-```
-
-
-#### Using your local development environment
-
-
-
-##### Endpoints
-
-Your application is running at: `http://localhost:3000/` in your browser.
-
-- Health endpoint: `/appmetrics-dash`
-
-
-##### Session Store
-You may see this warning when running `bx dev run`:
-```
-Warning: connect.session() MemoryStore is not
-designed for a production environment, as it will leak
-memory, and will not scale past a single process.
-```
-When deploying to production, it is best practice to configure sessions to be stored in an external persistence service.
-
-
-<a name="debug"></a>
-### Debug
-
-#### Using IBM Cloud development CLI
-To build and debug your app, run:
-```bash
-bx dev build --debug
-bx dev debug
-```
-
+[demo_url]: https://assistant-simple.ng.bluemix.net/
+[doc_intents]: https://cloud.ibm.com/docs/services/conversation/intents-entities.html#planning-your-entities
+[docs]: https://cloud.ibm.com/docs/services/assistant/index.html#index
+[docs_landing]: (https://cloud.ibm.com/docs/services/assistant/index.html#index)
+[node_link]: (http://nodejs.org/)
+[npm_link]: (https://www.npmjs.com/)
+[sign_up]: https://cloud.ibm.com/registration
