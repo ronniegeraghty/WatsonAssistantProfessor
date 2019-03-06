@@ -23,6 +23,10 @@
     cursor: pointer;
 }
 
+.chatBtn:hover {
+  background-color: #770101;
+}
+
 .chatBtnImg {
     height: 75px;
     width: 75px;
@@ -31,11 +35,11 @@
   .chat-column-hidden {
     position: absolute;
     opacity: 1;
-    height: 50%;
+    height: 60%;
     width: 30%;
     right: 5%;
     left: 100%;
-    top: 35%;
+    top: 25%;
     background-color: white;
     border: 2px solid grey;
     border-radius: 0.5rem;
@@ -50,11 +54,11 @@
   .chat-column {
     position: absolute;
     opacity: 1;
-    height: 50%;
+    height: 60%;
     width: 30%;
     right: 5%;
     left: 65%;
-    top: 35%;
+    top: 25%;
     background-color: white;
     border: 2px solid grey;
     border-radius: 0.5rem;
